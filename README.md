@@ -1,7 +1,7 @@
 <div align="center">
 
 # ✨ 3D Animated Interactive Portfolio 🌌🎨
-### Immersive WebGL & Three.js Spatial Experience with Dynamic Shaders & Physical Particles
+### Immersive WebGL Spatial Experience with Custom GLSL Shaders & React Three Fiber
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Three.js](https://img.shields.io/badge/Three.js-r128+-000000?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
@@ -9,55 +9,84 @@
 [![React Three Fiber](https://img.shields.io/badge/R3F-v8+-000000?style=for-the-badge&logo=react&logoColor=white)](https://docs.pmnd.rs/react-three-fiber/)
 [![Framer Motion](https://img.shields.io/badge/Animation-Framer_Motion-FF0055?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 [![WebGL 2.0](https://img.shields.io/badge/Graphics-WebGL_2.0-990000?style=for-the-badge&logo=webgl&logoColor=white)](https://www.khronos.org/webgl/)
-[![Read in Persian](https://img.shields.io/badge/مطالعه_به_فارسی-Persian_README-008080?style=for-the-badge)](#-توضیحات-کامل-فارسی-persian-documentation)
+[![Read in Persian](https://img.shields.io/badge/مطالعه_به_فارسی-Persian_README-008080?style=for-the-badge)](#-توضیحات-فوقالعاده-جامع-فارسی-persian-documentation)
 
 <p align="center">
-  A jaw-dropping, award-winning interactive 3D personal portfolio and digital art showcase. Powered by WebGL 2.0, Three.js, React Three Fiber, and customized GLSL vertex and fragment shaders. Features realistic camera physics, orbit controls, procedural starfields, and reactive audio visualizers.
+  An award-winning interactive 3D spatial portfolio and creative engineering showcase. Powered by WebGL 2.0, Three.js, React Three Fiber, Express, and customized GLSL vertex/fragment shaders. Features GPU-accelerated particle physics, inertial camera damping, and interactive project showrooms.
 </p>
 
-[Visual Features](#-visual--technical-features) •
-[GLSL Shaders](#-shader-pipeline--graphics) •
+[Project Overview](#-project-overview) •
+[Directory Structure](#-directory--file-structure) •
+[Shader Pipeline](#-glsl-shader-pipeline--graphics) •
+[Component Architecture](#-component-architecture) •
 [Quick Start](#-quick-start) •
-[توضیحات فارسی](#-توضیحات-کامل-فارسی-persian-documentation) •
+[توضیحات فارسی](#-توضیحات-فوقالعاده-جامع-فارسی-persian-documentation) •
 [License](#-license)
 
 </div>
 
 ---
 
-## 🎨 Visual & Technical Features
+## 🎯 Project Overview
 
-- 🌌 **Procedural Particle Cosmologies**:
-  - Over 15,000 GPU-instanced particle vertices orbiting in mathematically defined Archimedean spirals.
-  - Interactive mouse parallax that deflects and illuminates surrounding starfields in real time.
-- 💎 **Custom GLSL Physical Material Shaders**:
-  - Fresnel reflection effects, chromatic aberration passes, and dynamic bloom post-processing.
-- 🕹️ **Smooth Damped Camera Physics**:
-  - Inertial orbit controls, smooth scroll interpolation powered by Lenis / Framer Motion, and cinematic waypoint transitions.
-- ⚡ **Optimized 60/120 FPS Performance**:
-  - Automatic Level-of-Detail (LOD) degradation on low-tier GPUs and mobile devices to preserve high frame rates.
-- 📱 **Fully Responsive Touch Navigation**:
-  - Gesture-driven 3D object rotation and pinch-to-zoom support for mobile and tablet screens.
+Static 2D web portfolios fail to convey modern full-stack graphics engineering capabilities. **3d-animated-interactive-portfolio** pushes modern browsers to their visual limits:
+- **Spatial Storytelling**: Users navigate an interactive 3D environment where camera movements fluidly track user gestures.
+- **GPU Instancing**: Over 15,000 particle vertices rendered concurrently with minimal CPU overhead.
+- **Full-Stack Synergy**: Features an Express.js backend delivering dynamic project data and portfolio metrics directly to client-side Three.js scenes.
 
 ---
 
-## 🔮 Shader Pipeline & Graphics
+## 📂 Directory & File Structure
 
-The visual magic relies on customized GLSL vertex displacement and fragment coloring:
+```
+3d-animated-interactive-portfolio/
+│
+├── package.json                     # Monorepo root dependencies and build orchestrator
+├── README.md                        # Master comprehensive bilingual documentation
+│
+├── client/                          # React + Three.js Frontend Application
+│   ├── index.html                   # WebGL canvas viewport container & font loaders
+│   ├── package.json                 # Client dependencies (@react-three/fiber, three, framer-motion)
+│   ├── vite.config.js               # Vite bundler with GLSL shader loader plugins
+│   └── src/
+│       ├── main.jsx                 # React root rendering entrypoint
+│       ├── App.jsx                  # Main viewport orchestrator & scene state manager
+│       ├── index.css                # Global canvas reset, custom cursor & typography
+│       ├── data.js                  # Frontend portfolio content & showcase metadata
+│       └── components/
+│           ├── Hero.jsx             # Intro HTML overlay with title and CTA buttons
+│           ├── SceneHero.jsx        # 3D Hero scene with orbiting procedural planets
+│           ├── SceneSkills.jsx      # Spatial skills visualizer with rotating 3D tech icons
+│           ├── SceneMini.jsx        # Lightweight secondary 3D background visualizer
+│           ├── Skills.jsx           # Technical proficiency matrix overlay
+│           ├── Projects.jsx         # Interactive 3D project showcase with preview modals
+│           ├── About.jsx            # Personal engineering philosophy & bio section
+│           └── Footer.jsx           # Spatial navigation footer with social media links
+│
+└── server/                          # Optional Express.js API Backend
+    ├── index.js                     # Express server providing portfolio endpoints
+    ├── data.js                      # Centralized project registry served to client
+    └── package.json                 # Server-side dependencies (express, cors, dotenv)
+```
+
+---
+
+## 🔮 GLSL Shader Pipeline & Graphics
+
+Custom vertex and fragment shaders power the atmospheric planetary glow and particle displacement:
 
 ```glsl
-// Custom Vertex Displacement Example
-uniform float uTime;
-varying vec2 vUv;
-varying float vDisplacement;
+// Fragment Shader: Atmospheric Fresnel Glow
+uniform vec3 uColor;
+varying vec3 vNormal;
+varying vec3 vPosition;
 
 void main() {
-    vUv = uv;
-    vec3 newPosition = position;
-    float wave = sin(position.x * 3.0 + uTime) * cos(position.y * 3.0 + uTime) * 0.15;
-    newPosition += normal * wave;
-    vDisplacement = wave;
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+    vec3 viewDirection = normalize(-vPosition);
+    float fresnel = dot(viewDirection, vNormal);
+    fresnel = clamp(1.0 - fresnel, 0.0, 1.0);
+    fresnel = pow(fresnel, 3.0);
+    gl_FragColor = vec4(uColor * fresnel, fresnel);
 }
 ```
 
@@ -65,51 +94,50 @@ void main() {
 
 ## 🚀 Quick Start
 
-### 1. Clone & Install
+### 1. Install Client & Server
 ```bash
 git clone https://github.com/MOHAMMADREZAABEDINPOOR/3d-animated-interactive-portfolio.git
 cd 3d-animated-interactive-portfolio
 
+# Install client
+cd client
+npm install
+
+# Install server (optional)
+cd ../server
 npm install
 ```
 
 ### 2. Run Local Development Server
 ```bash
+# In client directory:
 npm run dev
 ```
-Open `http://localhost:3000` or `http://localhost:5173` in your browser.
-
-### 3. Production Build & Bundle Optimization
-```bash
-npm run build
-npm run preview
-```
+Open `http://localhost:5173` in your browser.
 
 ---
 
-## 🇮🇷 توضیحات کامل فارسی (Persian Documentation)
+## 🇮🇷 توضیحات فوق‌العاده جامع فارسی (Persian Documentation)
 
-### معرفی پروژه پورتفولیوی سه‌بعدی تعاملی (3D Interactive Portfolio)
-پروژه **3d-animated-interactive-portfolio** یک اثر هنری دیجیتال و پورتفولیوی وب مدرن مبتنی بر گرافیک سه‌بعدی تحت وب (**WebGL 2.0**) و کتابخانه‌های قدرتمند **Three.js** و **React Three Fiber** است. این پروژه با هدف به نمایش گذاشتن نهایت پتانسیل وب در رندر صحنه‌های فضایی، شیدرهای نورپردازی، فیزیک دوربین و انیمیشن‌های نرم طراحی شده است.
+### ۱. معرفی پروژه پورتفولیوی سه‌بعدی تعاملی
+پروژه **3d-animated-interactive-portfolio** یک اثر هنری دیجیتال و پورتفولیوی وب سه‌بعدی است که با استفاده از تکنولوژی **WebGL 2.0** و کتابخانه‌های قدرتمند **Three.js** و **React Three Fiber** خلق شده است. این پروژه به منظور نمایش توانمندی‌های پیشرفته در برنامه‌نویسی گرافیک کامپیوتری، شیدرهای GLSL و انیمیشن‌های تعاملی ساخته شده است.
 
-### قابلیت‌های منحصربه‌فرد:
-1. **شبیه‌سازی ذرات در فضای کیهانی (Particle System):**
-   * بیش از ۱۵,۰۰۰ ذره رندر شده مستقیم روی GPU با محاسبات موقعیت مکانی برداری و واکنش به حرکت ماوس.
-2. **شیدرهای اختصاصی GLSL:**
-   * افکت‌های نوری شیشه‌ای (Glassmorphism سه‌بعدی)، شکست نور (Chromatic Aberration) و درخشش نئونی (Bloom Pass).
-3. **کنترل و فیزیک نرم دوربین:**
-   * جابه‌جایی سینمایی بین بخش‌های مختلف سایت با فریم‌ریت ثابت ۶۰ و ۱۲۰ فریم بر ثانیه.
-4. **بهینه‌سازی برای انواع دستگاه‌ها:**
-   * سیستم هوشمند تشخیص سخت‌افزار برای کاهش بار پردازشی روی گوشی‌های ضعیف‌تر و صرفه‌جویی در مصرف باتری.
+---
+
+### ۲. تشریح ساختار پوشه‌ها و کامپوننت‌های پروژه
+- **`client/src/components/SceneHero.jsx`**: صحنه سه‌بعدی اصلی شامل سیارات مداری، گردوغبار کیهانی و شبیه‌سازی جاذبه.
+- **`client/src/components/SceneSkills.jsx`**: نمایش سه‌بعدی مهارت‌های برنامه‌نویسی با آیکون‌های معلق در فضا که به حرکت ماوس واکنش نشان می‌دهند.
+- **`client/src/components/Projects.jsx`**: شو روم پروژه‌ها با قابلیت زوم و چرخش ۳۶۰ درجه کارت‌های پروژه.
+- **`server/index.js`**: بک‌اند سبک اکسپرس برای ارسال داینامیک اطلاعات پروژه‌ها به فرانت‌اند.
 
 ---
 
 ## 📜 License
 
-Distributed under the **MIT License**. Free for personal showcases, remixing, and learning.
+Distributed under the **MIT License**.
 
 ---
 
 <div align="center">
-  <sub>Designed with artistic passion by <a href="https://github.com/MOHAMMADREZAABEDINPOOR">MOHAMMADREZA ABEDINPOOR</a>. If you love 3D graphics, leave a ⭐!</sub>
+  <sub>Designed by <a href="https://github.com/MOHAMMADREZAABEDINPOOR">MOHAMMADREZA ABEDINPOOR</a>. Leave a ⭐ to support spatial web design!</sub>
 </div>
