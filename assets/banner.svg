@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="thBg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#030617" /><stop offset="50%" stop-color="#0a1236" /><stop offset="100%" stop-color="#020412" /></linearGradient>
+    <linearGradient id="thNeon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"><animate attributeName="stop-color" values="#38bdf8;#ec4899;#a855f7;#38bdf8" dur="7s" repeatCount="indefinite" /></stop>
+      <stop offset="50%" stop-color="#ec4899"><animate attributeName="stop-color" values="#ec4899;#a855f7;#38bdf8;#ec4899" dur="7s" repeatCount="indefinite" /></stop>
+      <stop offset="100%" stop-color="#a855f7"><animate attributeName="stop-color" values="#a855f7;#38bdf8;#ec4899;#a855f7" dur="7s" repeatCount="indefinite" /></stop>
+    </linearGradient>
+    <linearGradient id="thGrid" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ec4899" stop-opacity="0" /><stop offset="100%" stop-color="#38bdf8" stop-opacity="0.4" /></linearGradient>
+    <filter id="thGlow"><feGaussianBlur stdDeviation="5" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+  </defs>
+
+  <style>
+    @keyframes thSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes thFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
+    .floating-mesh { animation: thFloat 5s ease-in-out infinite; }
+  </style>
+
+  <rect width="1200" height="360" fill="url(#thBg)" />
+
+  <g opacity="0.65">
+    <line x1="0" y1="260" x2="1200" y2="260" stroke="#38bdf8" stroke-opacity="0.25" stroke-width="1" />
+    <line x1="600" y1="260" x2="0" y2="360" stroke="url(#thGrid)" stroke-width="1.5" />
+    <line x1="600" y1="260" x2="200" y2="360" stroke="url(#thGrid)" stroke-width="1.5" />
+    <line x1="600" y1="260" x2="400" y2="360" stroke="url(#thGrid)" stroke-width="1.5" />
+    <line x1="600" y1="260" x2="600" y2="360" stroke="url(#thGrid)" stroke-width="1.5" />
+    <line x1="600" y1="260" x2="800" y2="360" stroke="url(#thGrid)" stroke-width="1.5" />
+    <line x1="600" y1="260" x2="1000" y2="360" stroke="url(#thGrid)" stroke-width="1.5" />
+    <line x1="600" y1="260" x2="1200" y2="360" stroke="url(#thGrid)" stroke-width="1.5" />
+    <line x1="0" y1="290" x2="1200" y2="290" stroke="#38bdf8" stroke-opacity="0.2" stroke-width="1" />
+    <line x1="0" y1="330" x2="1200" y2="330" stroke="#ec4899" stroke-opacity="0.3" stroke-width="1.5" />
+  </g>
+
+  <circle cx="200" cy="110" r="140" fill="#ec4899" opacity="0.08" filter="url(#thGlow)" />
+  <circle cx="960" cy="170" r="160" fill="#38bdf8" opacity="0.12" filter="url(#thGlow)" />
+
+  <!-- 3D Wireframe Icosahedron / Polyhedron -->
+  <g transform="translate(940, 180)" class="floating-mesh">
+    <circle cx="0" cy="0" r="110" fill="none" stroke="url(#thNeon)" stroke-width="2" stroke-dasharray="8 6" opacity="0.7">
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="20s" repeatCount="indefinite" />
+    </circle>
+    <!-- Wireframe facets -->
+    <polygon points="0,-75 65,-30 40,55 -40,55 -65,-30" fill="#0d1b3e" stroke="#38bdf8" stroke-width="2" filter="url(#thGlow)" opacity="0.85" />
+    <polygon points="0,-75 0,15 65,-30" fill="#1e1035" stroke="#ec4899" stroke-width="1.5" opacity="0.7" />
+    <polygon points="0,-75 -65,-30 0,15" fill="#2d124d" stroke="#a855f7" stroke-width="1.5" opacity="0.7" />
+    <polygon points="-65,-30 -40,55 0,15" fill="#09142b" stroke="#38bdf8" stroke-width="1.5" opacity="0.7" />
+    <polygon points="65,-30 0,15 40,55" fill="#180a2b" stroke="#ec4899" stroke-width="1.5" opacity="0.7" />
+
+    <!-- Center Glowing Shader Core -->
+    <circle cx="0" cy="15" r="14" fill="#38bdf8" filter="url(#thGlow)">
+      <animate attributeName="r" values="12;18;12" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="fill" values="#38bdf8;#ec4899;#a855f7;#38bdf8" dur="7s" repeatCount="indefinite" />
+    </circle>
+
+    <!-- Floating Badges -->
+    <g transform="translate(-120, -50)">
+      <rect x="0" y="0" width="85" height="22" rx="6" fill="#060c24" stroke="#38bdf8" stroke-width="1" />
+      <text x="42" y="15" font-family="'Fira Code', monospace" font-size="10" font-weight="bold" fill="#38bdf8" text-anchor="middle">WEBGL 2.0</text>
+    </g>
+    <g transform="translate(65, 30)">
+      <rect x="0" y="0" width="85" height="22" rx="6" fill="#060c24" stroke="#ec4899" stroke-width="1" />
+      <text x="42" y="15" font-family="'Fira Code', monospace" font-size="10" font-weight="bold" fill="#f472b6" text-anchor="middle">THREE.JS</text>
+    </g>
+    <g transform="translate(-40, 70)">
+      <rect x="0" y="0" width="85" height="22" rx="6" fill="#060c24" stroke="#a855f7" stroke-width="1" />
+      <text x="42" y="15" font-family="'Fira Code', monospace" font-size="10" font-weight="bold" fill="#c084fc" text-anchor="middle">GLSL SHADER</text>
+    </g>
+  </g>
+
+  <!-- Left Typography -->
+  <g transform="translate(80, 140)">
+    <g transform="translate(0, -35)">
+      <rect x="0" y="-14" width="280" height="24" rx="12" fill="#ec4899" fill-opacity="0.12" stroke="#ec4899" stroke-width="1" />
+      <circle cx="12" cy="-2" r="4" fill="#ec4899" />
+      <text x="26" y="2" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="800" fill="#f472b6" letter-spacing="2">3D GRAPHICS // WEBGL ENGINE</text>
+    </g>
+
+    <text x="0" y="32" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, 'Montserrat', sans-serif" font-size="46" font-weight="900" fill="url(#thNeon)" filter="url(#thGlow)" letter-spacing="2">
+      3D INTERACTIVE PORTFOLIO
+    </text>
+
+    <text x="0" y="68" font-family="'Fira Code', monospace" font-size="16" font-weight="600" fill="#e2e8f0" letter-spacing="1">
+      ⚡ Immersive WebGL 2.0 Environment, Three.js &amp; Custom GLSL Shaders
+    </text>
+
+    <g transform="translate(0, 92)">
+      <rect x="0" y="0" width="165" height="26" rx="6" fill="#0a1236" stroke="#38bdf8" stroke-width="1" />
+      <text x="82" y="17" font-family="'Fira Code', monospace" font-size="11" font-weight="bold" fill="#38bdf8" text-anchor="middle">✨ Three.js / R3F</text>
+
+      <rect x="175" y="0" width="160" height="26" rx="6" fill="#0a1236" stroke="#ec4899" stroke-width="1" />
+      <text x="255" y="17" font-family="'Fira Code', monospace" font-size="11" font-weight="bold" fill="#f472b6" text-anchor="middle">🎨 Custom Shaders</text>
+
+      <rect x="345" y="0" width="150" height="26" rx="6" fill="#0a1236" stroke="#a855f7" stroke-width="1" />
+      <text x="420" y="17" font-family="'Fira Code', monospace" font-size="11" font-weight="bold" fill="#c084fc" text-anchor="middle">🚀 60 FPS Locked</text>
+
+      <rect x="505" y="0" width="150" height="26" rx="6" fill="#0a1236" stroke="#34d399" stroke-width="1" />
+      <text x="580" y="17" font-family="'Fira Code', monospace" font-size="11" font-weight="bold" fill="#34d399" text-anchor="middle">📱 Mobile Touch</text>
+    </g>
+  </g>
+
+  <line x1="0" y1="358" x2="1200" y2="358" stroke="url(#thNeon)" stroke-width="3" filter="url(#thGlow)" />
+</svg>

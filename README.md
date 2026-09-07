@@ -23,7 +23,7 @@
 [![React Three Fiber](https://img.shields.io/badge/R3F-v8+-000000?style=for-the-badge&logo=react&logoColor=white)](https://docs.pmnd.rs/react-three-fiber/)
 [![Framer Motion](https://img.shields.io/badge/Animation-Framer_Motion-FF0055?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 [![WebGL 2.0](https://img.shields.io/badge/Graphics-WebGL_2.0-990000?style=for-the-badge&logo=webgl&logoColor=white)](https://www.khronos.org/webgl/)
-[![Read in Persian](https://img.shields.io/badge/مطالعه_به_فارسی-Persian_README-008080?style=for-the-badge)](#-بخش-فوقالعاده-مفصل-و-جامع-به-زبان-فارسی-persian-documentation)
+[![Read in Persian](https://img.shields.io/badge/مطالعه_به_فارسی-Persian_README-008080?style=for-the-badge)](#persian-documentation)
 
 <p align="center">
   <b>3d-animated-interactive-portfolio</b> is a spatial personal portfolio and digital art showcase engineered on WebGL 2.0, Three.js, React Three Fiber, Framer Motion, and Express. Featuring custom GLSL physical material shaders, GPU-accelerated cosmic particle cosmologies, inertial camera physics, and an interactive 3D project showroom, this application represents the pinnacle of modern creative engineering.
@@ -37,7 +37,7 @@
 [Shader Pipeline](#-glsl-shader-pipeline--lighting-mechanics) •
 [Component Architecture](#-3d-scene-architecture) •
 [Quick Start](#-quick-start--local-development) •
-[توضیحات فارسی](#-بخش-فوقالعاده-مفصل-و-جامع-به-زبان-فارسی-persian-documentation) •
+[توضیحات فارسی](#persian-documentation) •
 [Roadmap](#-strategic-engineering-roadmap) •
 [License](#-license--open-source-attribution)
 
@@ -147,7 +147,8 @@ Open `http://localhost:5173` in your browser.
 
 ---
 
-## 🇮🇷 بخش فوق‌العاده مفصل و جامع به زبان فارسی (Persian Documentation)
+## Persian Documentation
+### 🇮🇷 مستندات فوق‌العاده مفصل، جامع و فنی به زبان فارسی
 
 ### ۱. مقدمه و فلسفه هنری پورتفولیوی سه‌بعدی تعاملی
 پروژه **3d-animated-interactive-portfolio** یک اثر هنری دیجیتال و پورتفولیوی وب سه‌بعدی است که مرزهای میان مهندسی نرم‌افزار، طراحی رابط کاربری و هنر گرافیک رایانه‌ای را درمی‌نوردد. این پروژه با استفاده از **WebGL 2.0**، کتابخانه **Three.js** و اکوسیستم **React Three Fiber** خلق شده تا توانایی‌های برنامه‌نویسی سطح بالا را در یک محیط فضایی تعاملی به نمایش بگذارد.
@@ -183,7 +184,7 @@ Distributed under the **MIT License**. Free for personal exploration, educationa
 <!-- ============================================================================== -->
 <!-- ANIMATED CAPSULE FOOTER                                                        -->
 <!-- ============================================================================== -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=1,12,24,30&height=120&section=footer" alt="Footer" width="100%" />
+<img src="./assets/footer.svg" alt="3D Portfolio 3D Footer" width="100%" />
 
 <sub>Designed with creative passion by <a href="https://github.com/MOHAMMADREZAABEDINPOOR"><b>MOHAMMADREZA ABEDINPOOR</b></a>. If this 3D spatial experience inspires you, please leave a ⭐!</sub>
 
